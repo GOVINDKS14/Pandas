@@ -1,0 +1,12 @@
+import pandas as pd
+
+def count_rich_customers(store: pd.DataFrame) -> pd.DataFrame:
+    # Making a data frame having amount>500 from the given dataframe 
+    df = store[store.amount>500]
+
+    # Now, if it is having a repeating row, making it unique by nunique()
+    rich_count = df['customer_id'].nunique()
+
+    # Returning the dataframe by making a column having column name as 'rich_count'
+    return pd.DataFrame({'rich_count':[rich_count]})
+    
